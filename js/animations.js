@@ -40,11 +40,12 @@ function randomizePosition() {
 
 // move that virus! using jQuery's animate function, plugging in new coordinates and speed
 function animateDiv() {
+  var virus = document.querySelector(".virus, .virus2, .virus3, .virus4");
   var newq = randomizePosition();
-  var oldq = $(".virus").offset();
+  var oldq = $(virus).offset();
   var speed = calculateSpeed([oldq.top, oldq.left], newq);
 
-  $(".virus").animate({ top: newq[0], left: newq[1] }, speed, function () {
+  $(virus).animate({ top: newq[0], left: newq[1] }, speed, function () {
     animateDiv();
   });
 }
